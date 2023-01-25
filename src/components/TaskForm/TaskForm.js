@@ -1,7 +1,7 @@
 // Импортируем хук для отправки экшен
 import { useDispatch } from "react-redux";
 // Импортируем генератор экшена
-import { addTask } from "../../redux/actions";
+import { addTask } from "redux/actions";
 import { Button } from "components/Button/Button";
 import css from "./TaskForm.module.css";
 

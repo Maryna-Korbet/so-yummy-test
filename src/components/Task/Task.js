@@ -1,7 +1,7 @@
 // Импортируем хук для отправки экшен
 import { useDispatch } from "react-redux";
 // Импортируем генератор экшена
-import { deleteTask, toggleCompleted } from "../../redux/actions";
+import { deleteTask, toggleCompleted } from "redux/actions";
 import { MdClose } from "react-icons/md";
 import css from "../Task/Task.module.css";
 
