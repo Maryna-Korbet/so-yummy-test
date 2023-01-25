@@ -11,29 +11,20 @@ const initialState = {
     status: statusFilters.all,
   },
 };
-// Используем initialState как значение состояния по умолчанию
+
 export const rootReducer = (state = initialState, action) => {
-  // Редюсер различает экшены по значению свойства type
-  switch (action.type) {
-    // В зависимости от типа экшена будет выполняться разная логика
-    case "tasks/addTask": {
-      // Нужно вернуть новый объект состояния
-      return {
-        // в котором есть все данные существующего состояния
-        ...state,
-        // и новый массив задач
-        tasks: [
-          // в котором есть все существующие задачи
-          ...state.tasks,
-          // и объект новой задачи
-          action.payload,
-        ],
-      };
+    switch (action.type) {
+      case "tasks/addTask":
+        return {
+          ...state,
+          tasks: [...state.tasks, action.payload],
+        };
+      case "tasks/deleteTask":
+        return {
+          ...state,
+          tasks: state.tasks.filter(task => task.id !== action.payload),
+        };
+      default:
+        return state;
     }
-    default:
-      // Каждый редюсер получает все экшены отправленные в стор.
-      // Если редюсер не должен обрабатывать какой-то тип экшена,
-      // необходимо вернуть существующее состояние без изменений.
-      return state;
-  }
-};
+  };
