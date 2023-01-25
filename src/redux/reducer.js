@@ -1,4 +1,3 @@
-// Импортируем функцию композиции редюсеров
 import { combineReducers } from "redux";
 import { statusFilters } from "./constants";
 
@@ -10,8 +9,6 @@ const tasksInitialState = [
   { id: 4, text: "Build amazing apps", completed: false },
 ];
 
-// Отвечает только за обновление свойства tasks
-// Теперь значением параметра state будет массив задач
 const tasksReducer = (state = tasksInitialState, action) => {
   switch (action.type) {
     case "tasks/addTask":
@@ -34,8 +31,6 @@ const filtersInitialState = {
   status: statusFilters.all,
 };
 
-// Отвечает только за обновление свойства filters
-// Теперь значением параметра state будет объект фильтров
 const filtersReducer = (state = filtersInitialState, action) => {
   switch (action.type) {
     case "filters/setStatusFilter":
@@ -49,7 +44,6 @@ const filtersReducer = (state = filtersInitialState, action) => {
 };
 
 export const rootReducer = combineReducers({
-  // Обоим редюсерам передаем только часть состояния за которую они отвечают
   tasks: tasksReducer,
   filters: filtersReducer,
 });
