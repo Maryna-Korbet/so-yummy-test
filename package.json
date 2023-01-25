@@ -1,8 +1,8 @@
 {
-  "name": "react-redux-todo-list",
+  "name": "react-redux-toolkit-todolist",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://goitacademy.github.io/react-redux-todo-list/",
+  "homepage": "https://goitacademy.github.io/react-redux-toolkit-todolist/",
   "dependencies": {
     "@redux-devtools/extension": "^3.2.5",
     "@testing-library/jest-dom": "^5.16.3",
