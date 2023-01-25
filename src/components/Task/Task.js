@@ -1,7 +1,12 @@
+// Импортируем хук для отправки экшен
+import { useDispatch } from "react-redux";
 import { MdClose } from "react-icons/md";
 import css from "../Task/Task.module.css";
 
 export const Task = ({ task }) => {
+  //Запускаем функцию отправки экшенов
+  const dispatch = useDispatch();
+  
   return (
     <div className={css.wrapper}>
       <input

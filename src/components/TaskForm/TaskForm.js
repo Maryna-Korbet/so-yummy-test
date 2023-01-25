@@ -1,7 +1,12 @@
+// Импортируем хук для отправки экшен
+import { useDispatch } from "react-redux";
 import { Button } from "components/Button/Button";
 import css from "./TaskForm.module.css";
 
 export const TaskForm = () => {
+  //Запускаем функцию отправки экшенов
+  const dispatch = useDispatch();
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;

@@ -1,5 +1,5 @@
-// Импортируем хук
-import { useSelector } from "react-redux";
+// Импортируем хук, хук для отправки экшен
+import { useSelector, useDispatch } from "react-redux";
 // Импортируем объект значений фильтра
 import { statusFilters } from "redux/constants";
 // Импортируем функцию-селектор
@@ -10,6 +10,8 @@ import css from "./StatusFilter.module.css";
 export const StatusFilter = () => {
   // Получаем значение фильтра из состояния Redux. добавляем функцию-селектор
   const filter = useSelector(getStatusFilter);
+  //Запускаем функцию отправки экшенов
+  const dispatch = useDispatch();
 
   return (
     <div className={css.wrapper}>
