@@ -1,6 +1,5 @@
 //Добавляем библиотеку генерации id
 import { nanoid } from "nanoid";
-
 //Добавляем объекты, которые передают данные из компонентов в стор
 export const addTask = text => {
   return {
