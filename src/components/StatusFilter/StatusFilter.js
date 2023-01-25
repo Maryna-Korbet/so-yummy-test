@@ -2,12 +2,14 @@
 import { useSelector } from "react-redux";
 // Импортируем объект значений фильтра
 import { statusFilters } from "redux/constants";
+// Импортируем функцию-селектор
+import { getStatusFilter } from "redux/selector";
 import { Button } from "components/Button/Button";
 import css from "./StatusFilter.module.css";
 
 export const StatusFilter = () => {
-  // Получаем значение фильтра из состояния Redux
-  const filter = useSelector(state => state.filters.status);
+  // Получаем значение фильтра из состояния Redux. добавляем функцию-селектор
+  const filter = useSelector(getStatusFilter);
 
   return (
     <div className={css.wrapper}>

@@ -2,6 +2,8 @@
 import { useSelector } from "react-redux";
 // Импортируем объект значений фильтра
 import { statusFilters } from "redux/constants";
+// Импортируем функциu-селекторы
+import { getTasks, getStatusFilter } from "redux/selector";
 import { Task } from "components/Task/Task";
 import css from "./TaskList.module.css";
 
@@ -17,10 +19,10 @@ const getVisibleTasks = (tasks, statusFilter) => {
 };
 
 export const TaskList = () => {
-  // Получаем массив задач из состояния Redux
-  const tasks = useSelector(state => state.tasks);
-  // Получаем значение фильтра из состояния Redux
-  const statusFilter = useSelector(state => state.filters.status);
+  // Получаем массив задач из состояния Redux, добавляем функцию-селектор
+  const tasks = useSelector(getTasks);
+  // Получаем значение фильтра из состояния Redux, добавляем функцию-селектор
+  const statusFilter = useSelector(getStatusFilter);
   // Вычисляем массив задач которые необходимо отображать в интерфейсе
   const visibleTasks = getVisibleTasks(tasks, statusFilter);
 
