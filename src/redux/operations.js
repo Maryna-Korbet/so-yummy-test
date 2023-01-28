@@ -9,10 +9,10 @@ export const fetchTasks = createAsyncThunk(
         try {
             const response = await axios.get("/tasks");
             return response.data;
-    } catch (e) {
-        return thunkAPI.rejectWithValue(e.message);
+        } catch (e) {
+            return thunkAPI.rejectWithValue(e.message);
+        }
     }
-}
 );
 
 export const addTask = createAsyncThunk(
@@ -20,6 +20,18 @@ export const addTask = createAsyncThunk(
     async (text, thunkAPI) => {
         try {
             const response = await axios.post("/tasks", { text });
+            return response.data;
+        } catch (e) {
+            return thunkAPI.rejectWithValue(e.message);
+        }
+    }
+);
+
+export const deleteTask = createAsyncThunk(
+    "tasks/deleteTask",
+    async (taskId, thunkAPI) => {
+        try {
+            const response = await axios.delete(`/tasks/${taskId}`);
             return response.data;
         } catch (e) {
             return thunkAPI.rejectWithValue(e.message);
